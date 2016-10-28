@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <%= image_tag("header.jpg", class: "imagesty", size: "1510x300", :alt => "header") %>
+     <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       <% if user_signed_in? %>
+       <p>Hi <strong><%= current_user.email %></p></strong>
+       <% end %>
+       <strong><%= link_to 'Sign Up', new_user_registration_path %></strong> |
+       <% if user_signed_in? %>
+       <strong><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></strong>
+
+       <% else %>
+       <strong><%= link_to 'Login', new_user_session_path %></strong>
+       <% end %>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<%= div_for @post do%>
+<%= content_tag :div, class: "posts" do -%>
+<h2><%= h(@post.title)%></h2>
+<% end %>
+<%= content_tag :div, class: "posts-inner" do -%>
+  <p><%= simple_format h(@post.body) %></p>
+<% end %>
+<% end %>
